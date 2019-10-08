@@ -1,0 +1,11 @@
+---
+
+- debug:
+    msg: 'Запуск роли по смене пароля'
+
+- name: Change password
+  crypt_ini:
+      path: "{{ lookup('env','SB_PASSWORD_CHANGE_PATH') }}"
+      passw: "{{ lookup('env','SB_PASSWORD_CHANGE_PASSW') }}"
+      key: "{{ lookup('env','SB_PASSWORD_CHANGE_KEY') }}"
+      silent: "{{ lookup('env','SB_PASSWORD_CHANGE_SILENT') or true }}"
